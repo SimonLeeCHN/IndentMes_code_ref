@@ -2,7 +2,7 @@ This code repository stores the implementation of the key codes involved in our 
 
 In order to show the results of our work more intuitively, please see this software demo animation below.
 
-![动画](demo/%E5%8A%A8%E7%94%BB.gif)
+![animation](demo/animation.gif)
 
 If you want to see a clearer picture of the process, please refer to the demo folder.
 
