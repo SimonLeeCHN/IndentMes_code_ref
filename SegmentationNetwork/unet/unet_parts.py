@@ -1,5 +1,3 @@
-""" Parts of the U-Net model """
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -7,7 +5,6 @@ import torch.nn.functional as F
 
 # 卷积块
 class ConvBlock(nn.Module):
-    """(convolution => [BN] => ReLU) * 2"""
 
     def __init__(self, in_channels, out_channels, mid_channels=None):
         super().__init__()
@@ -27,8 +24,8 @@ class ConvBlock(nn.Module):
 
 
 # 卷积下采样
-class Down(nn.Module):
-    """Downscaling with maxpool then double conv"""
+class DownConvBlock(nn.Module):
+    # 在卷积块上添加MaxPool
 
     def __init__(self, in_channels, out_channels):
         super().__init__()
@@ -42,13 +39,13 @@ class Down(nn.Module):
 
 
 # 卷积上采样
-class Up(nn.Module):
-    """Upscaling then double conv"""
+class UpConvBlock(nn.Module):
+    # 在卷积块上添加上采样
 
     def __init__(self, in_channels, out_channels, bilinear=True):
         super().__init__()
 
-        # if bilinear, use the normal convolutions to reduce the number of channels
+        # 选择是卷积上采样还是插值
         if bilinear:
             self.up = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True)
             self.conv = ConvBlock(in_channels, out_channels, in_channels // 2)
