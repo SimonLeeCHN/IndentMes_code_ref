@@ -44,7 +44,7 @@ In order to show the results more intuitively, please see this software demo ani
   
     Among them, *scale* is the zoom factor, *inputMat* is the image to be processed, *roi* is the region of interest (you can simply pass in an empty QRectF)
 
-    It is worth noting that there are actually two algorithms in the *RoughLocAlgorithm.h/cpp* file, they are **M**ax **I**nternal Connect **F**iled (MICF) and **F**lood **F**ill (FF). The MICF method performs rough positioning by finding the largest connected domain. The FF method first identifies the approximate extent of the indentation by searching for the largest connected field. Next, the area is filled by the Flood Fill method using the brightest and darkest points within that range as a reference. You can choose the method you want by modifying the following code:
+    It is worth noting that there are actually two algorithms in the *RoughLocAlgorithm.h/cpp* file, they are **M**ax **I**nternal **C**onnect **F**iled (MICF) and **F**lood **F**ill (FF). The MICF method performs rough positioning by finding the largest connected domain. The FF method first identifies the approximate extent of the indentation by searching for the largest connected field. Next, the area is filled by the Flood Fill method using the brightest and darkest points within that range as a reference. You can choose the method you want by modifying the following code:
 
     ```c++
     switch(gSystemProperty.imaAIMSelect) //This is an enumeration, please refer to the definition in the header file to choose which method to use
