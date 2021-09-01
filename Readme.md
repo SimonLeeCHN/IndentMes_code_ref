@@ -56,7 +56,7 @@ In order to show the results more intuitively, please see this software demo ani
             }
             case RoughLocAlgorithm::eAIM_FloodFill:
             {
-                _AIM_FloodFill(_optMat,_indentRect); //Diffuse water filling method
+                _AIM_FloodFill(_optMat,_indentRect); //Flood Fill method
                 break;
             }
             default:
